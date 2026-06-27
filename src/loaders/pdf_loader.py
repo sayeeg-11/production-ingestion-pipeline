@@ -1,47 +1,34 @@
-"""
-PDF Loader
-"""
-
 import uuid
+import fitz
 from pathlib import Path
 
-import fitz
-
-from src.loaders.base_loader import BaseLoader
+from .base_loader import BaseLoader
 from src.models import BaseDocument, DocumentMetadata
 from src.utils.logger import logger
 
 
 class PDFLoader(BaseLoader):
-    """
-    Loads PDF documents using PyMuPDF.
-    """
+    def load(self, file_path: str) -> BaseDocument:
+        logger.info(f"Loading PDF: {file_path}")
 
-    def load(self, source: str) -> BaseDocument:
+        path = Path(file_path)
 
-        logger.info(f"Loading PDF: {source}")
+        document = fitz.open(file_path)
 
-        pdf = fitz.open(source)
+        text = ""
 
-        pages = []
-        total_pages = len(pdf)
-
-        for page in pdf:
-            pages.append(page.get_text())
-
-        pdf.close()
-
-        text = "\n".join(pages)
+        for page in document:
+            text += page.get_text()
 
         metadata = DocumentMetadata(
             source="pdf",
-            file_name=Path(source).name,
-            file_type=".pdf",
-            page_number=total_pages,
+            file_name=path.name,
+            file_type=path.suffix,
+            page_number=document.page_count,
         )
 
         return BaseDocument(
             document_id=str(uuid.uuid4()),
             text=text,
             metadata=metadata,
-        )
+        )   
