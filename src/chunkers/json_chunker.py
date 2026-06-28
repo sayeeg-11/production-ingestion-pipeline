@@ -6,7 +6,7 @@ from .base_chunker import BaseChunker
 from src.models import DocumentChunk
 
 
-class CSVChunker(BaseChunker):
+class JSONChunker(BaseChunker):
 
     def __init__(self):
         self.splitter = RecursiveCharacterTextSplitter(
