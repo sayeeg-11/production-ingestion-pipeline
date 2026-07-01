@@ -3,7 +3,7 @@ import uuid
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 
 from .base_chunker import BaseChunker
-from src.models import DocumentChunk
+from src.models import DocumentChunk, metadata
 
 
 class CSVChunker(BaseChunker):
@@ -15,15 +15,23 @@ class CSVChunker(BaseChunker):
         )
 
     def chunk(self, document):
+
         chunks = self.splitter.split_text(document.text)
 
-        return [
-            DocumentChunk(
-                chunk_id=str(uuid.uuid4()),
-                chunk_index=i,
-                document_id=document.document_id,
-                text=chunk,
-                metadata=document.metadata,
+        document_chunks = []
+
+        for i, chunk in enumerate(chunks):
+
+            metadata = document.metadata.model_copy(deep=True)
+            metadata.chunk_index = i
+
+            document_chunks.append(
+                DocumentChunk(
+                    chunk_id=str(uuid.uuid4()),
+                    document_id=document.document_id,
+                    chunk_index=i,
+                    text=chunk,
+                    metadata=metadata,
+                )
             )
-            for i, chunk in enumerate(chunks)
-        ]
+        return document_chunks

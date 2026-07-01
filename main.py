@@ -1,17 +1,23 @@
 from src.pipeline import IngestionPipeline
+from src.executor import ParallelExecutor
 
 
 def main():
 
     pipeline = IngestionPipeline()
 
-    pipeline.ingest("data/csv/sample.csv")
+    files = [
+        "data/csv/sample.csv",
+        "data/json/sample.json",
+        "data/pdf/sample.pdf",
+        "data/web/urls.txt",
+    ]
 
-    pipeline.ingest("data/json/sample.json")
+    executor = ParallelExecutor()
 
-    pipeline.ingest("data/pdf/sample.pdf")
+    executor.execute(pipeline.ingest, files)
 
-    pipeline.ingest("data/web/urls.txt")
+    pipeline.print_summary()
 
 
 if __name__ == "__main__":

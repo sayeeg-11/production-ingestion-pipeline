@@ -1,70 +1,24 @@
 [
     {
-        "chunk_id": "4996fe2f-a4d8-42fa-b995-c8b0e92ff788",
-        "document_id": "3f77ebe9-b841-400e-99a9-736df4a61cfb",
+        "chunk_id": "13ef1da9-5f42-4859-a13d-9e722e45f221",
+        "document_id": "00b01cdb-97a2-40a1-9125-c9d60c7b943a",
         "chunk_index": 0,
-        "text": "EDUCATION\nCO-CURRICULAR\nProject Admin – Social Winter of Code (SWOC'26), Winter of Code\nSocial (WoCS'25) \nOpen Source Contributor – GirlScript Summer of Code (GSSoC'25,\nGSSoC'26),Winter of Code Social (WoCS'25) .\nTeam Lead – Avishkar Competition (2025)\nInternal Qualifier – Smart India Hackathon (2025)\nACHIEVEMENTS\n• Global Rank 2 – Winter of Code Social (WoCS’25)\n• Project Admin – Led projects to Global Rank 1 and Rank 4 positions\nduring  Social Winter of Code (SWOC’26)\nEXTRA-CURRICULAR\nWinner – MAFFICK Basketball Tournament | Team Captain | 2026\nWinner – KPL Basketball Tournament | Team Captain | 2025\nBest Sports Coordinator Award | 2026\nRunner-Up – Inter-Collegiate Women's Basketball Tournament | 2024\nBronze Medalist – State Level Judo Championship\nINTERESTS & HOBBIES\nINTERNSHIPS\nCONTACT\nTECH STACK\nPOSITIONS OF\nRESPONSIBILITY \nPROJECTS \n \nCERTIFICATIONS\nLinkedin\nAI,IoT, Electronics  Writing ,\nMusic, Sports, Reading.\nGitHub\nK. \nK. \nWagh \nInstitute \nof\nEngineering \nEducation \nand",
+        "text": "Name Age City\n Alice 23 Pune\n Bob 27 Mumbai\nCharlie 21 Nashik",
         "metadata": {
-            "source": "pdf",
-            "file_name": "sample.pdf",
-            "file_type": ".pdf",
+            "source": "csv",
+            "file_name": "sample.csv",
+            "file_type": ".csv",
             "created_at": null,
             "modified_at": null,
             "author": null,
-            "page_number": 1,
+            "page_number": null,
             "url": null,
-            "language": null
-        }
-    },
-    {
-        "chunk_id": "578fb60d-1c7b-4fa1-9ede-8ed7e6f4106f",
-        "document_id": "3f77ebe9-b841-400e-99a9-736df4a61cfb",
-        "chunk_index": 1,
-        "text": "CERTIFICATIONS\nLinkedin\nAI,IoT, Electronics  Writing ,\nMusic, Sports, Reading.\nGitHub\nK. \nK. \nWagh \nInstitute \nof\nEngineering \nEducation \nand\nResearch (2023-27) \nB.Tech \nin \nInformation\nTechnology (CGPA- 8.71)\nMatoshri \nJunior \nCollege,\nNashik(HSC Board - 78.33%)  \n(Feb 2023)\nShining Star Academy, Nashik\n(SSC Board- 90.00% ) (April\n2021)\nLanguages: C, C++, Java, Python,\nJavaScript, PHP, HTML, CSS\nDatabase: MySQL\nLib/Frameworks:Streamlit, OpenCV\nTools: Git, GitHub, VS Code, Power BI\nStudent Mentor \nPixel Phantoms (Student-lead tech\ncommunity) \n \n2025\nAI & Data Analytics Intern\nAICTE, Shell India & Edunet Foundation\nKey Skills: Completed a 4-week internship in AI, Data Analytics, and\nGreen Skills with practical exposure.\nFeb – Mar 2025\nInformation Technology undergraduate with a strong interest in\nsoftware development, open-source contribution, and technology-\ndriven problem solving. An analytical and adaptable learner with\ngood teamwork and communication skills, developed through",
-        "metadata": {
-            "source": "pdf",
-            "file_name": "sample.pdf",
-            "file_type": ".pdf",
-            "created_at": null,
-            "modified_at": null,
-            "author": null,
-            "page_number": 1,
-            "url": null,
-            "language": null
-        }
-    },
-    {
-        "chunk_id": "15963073-3bd9-42d0-94dc-85d6d1fd06d0",
-        "document_id": "3f77ebe9-b841-400e-99a9-736df4a61cfb",
-        "chunk_index": 2,
-        "text": "driven problem solving. An analytical and adaptable learner with\ngood teamwork and communication skills, developed through\ncollaborative projects and technical activities. Eager to take on\nnew challenges, apply technical knowledge, and grow in a\nprofessional environment.\nSayee Yogesh Gosavi\n2025-26\nManager – BYAMN (Startup) \nLed and mentored a team of\ninterns, managing workflows and\nensuring timely project delivery\n• Java Training – Spoken Tutorial Project, IIT Bombay         Jan 2025\n| Score: 77.50% Credits: 4 | Credential ID: 3845546MNV\n• C++ Training – Spoken Tutorial Project, IIT Bombay          May 2024\n | Score: 77.50% Credits: 2 |  | Credential ID: 3845546QUJ\n• Python Training – Spoken Tutorial Project, IIT Bombay\n •Niyantrak – Smart Barricade for Dynamic Crowd Control\n Developed an AI-powered IoT barricade system for dynamic crowd\nmanagement using computer vision, sensors, and real-time monitoring.\npatent application and research paper in progress.",
-        "metadata": {
-            "source": "pdf",
-            "file_name": "sample.pdf",
-            "file_type": ".pdf",
-            "created_at": null,
-            "modified_at": null,
-            "author": null,
-            "page_number": 1,
-            "url": null,
-            "language": null
-        }
-    },
-    {
-        "chunk_id": "6f09527f-c831-453e-9599-5a0daafd3598",
-        "document_id": "3f77ebe9-b841-400e-99a9-736df4a61cfb",
-        "chunk_index": 3,
-        "text": "management using computer vision, sensors, and real-time monitoring.\npatent application and research paper in progress.\n(Role: Curator of the Idea,Team Lead & was involved in every aspect)\nJan 2025 – Present\n• OpenSource Compass – Open Source Learning Platform  \n   Ranked #1 project in SWOC'26. (Role: Project Admin & Contributor)\n• Pixel Phantoms – Technical Community Website\n Ranked #4 project in SWOC'26. (Role: Project Admin & Contributor)\nJan 2026 –  March 2026\nJan 2026 – March 2026\n8446379211 \nsayeeygosavi@gmail.com\nNashik",
-        "metadata": {
-            "source": "pdf",
-            "file_name": "sample.pdf",
-            "file_type": ".pdf",
-            "created_at": null,
-            "modified_at": null,
-            "author": null,
-            "page_number": 1,
-            "url": null,
-            "language": null
+            "language": null,
+            "version": "645113ddd4313a5dd5754282ecc184cc0dc61ae90740a0293fa8598cd588b929",
+            "ingested_at": "2026-07-01T18:40:26.112816",
+            "chunk_index": 0,
+            "total_chunks": 1,
+            "processing_status": "processed"
         }
     }
 ]
