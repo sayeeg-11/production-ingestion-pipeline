@@ -71,3 +71,8 @@ SUPPORTED_EXTENSIONS = [
         ".pdf,.csv,.json,.txt"
     ).split(",")
 ]
+
+VECTOR_DB_DIRECTORY = BASE_DIR / os.getenv(
+    "VECTOR_DB_DIRECTORY",
+    "vector_db"
+)

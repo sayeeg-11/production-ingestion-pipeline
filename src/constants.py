@@ -44,3 +44,6 @@ SUPPORTED_FILE_TYPES = [
     ".json",
     ".txt",
 ]
+
+
+VECTOR_DB_DIRECTORY = "vector_db"

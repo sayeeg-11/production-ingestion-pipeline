@@ -3,7 +3,7 @@ Chunk Model
 """
 
 from pydantic import BaseModel
-
+from typing import Optional
 from src.models.metadata import DocumentMetadata
 
 
@@ -18,3 +18,5 @@ class DocumentChunk(BaseModel):
     text: str
 
     metadata: DocumentMetadata
+    
+    embedding: Optional[list[float]] = None
