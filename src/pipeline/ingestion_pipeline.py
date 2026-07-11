@@ -1,6 +1,6 @@
 from pathlib import Path
 from datetime import datetime
-
+from src.deduplication import DuplicateDetector
 from src.registry import LoaderRegistry, ChunkerRegistry
 from src.filters import QualityFilter
 from src.versioning import VersionManager
@@ -22,6 +22,7 @@ class IngestionPipeline:
 
         self.cleaner = TextCleaner()
         self.filter = QualityFilter()
+        self.duplicate_detector = DuplicateDetector()
 
         self.version = VersionManager()
         self.cache = VersionCache()
@@ -96,6 +97,7 @@ class IngestionPipeline:
                     chunker = self.chunker_registry.get_chunker(extension)
 
                     chunks = chunker.chunk(document)
+                    chunks = self.duplicate_detector.filter(chunks)
 
                     # ----------------------------------------
                     # Quality Filter
@@ -172,6 +174,7 @@ class IngestionPipeline:
             # ----------------------------------------
 
             self.vector_store.save()
+            self.duplicate_detector.save()
 
             output_name = Path(file_path).stem
 

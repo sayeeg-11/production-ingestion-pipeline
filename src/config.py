@@ -76,3 +76,13 @@ VECTOR_DB_DIRECTORY = BASE_DIR / os.getenv(
     "VECTOR_DB_DIRECTORY",
     "vector_db"
 )
+
+STORAGE_DIRECTORY = BASE_DIR / os.getenv(
+    "STORAGE_DIRECTORY",
+    "storage"
+)
+
+LOG_DIRECTORY.mkdir(exist_ok=True)
+OUTPUT_DIRECTORY.mkdir(exist_ok=True)
+VECTOR_DB_DIRECTORY.mkdir(exist_ok=True)
+STORAGE_DIRECTORY.mkdir(exist_ok=True)
