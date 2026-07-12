@@ -2,7 +2,6 @@ import faiss
 import pickle
 import numpy as np
 from pathlib import Path
-
 from src.config import VECTOR_DB_DIRECTORY
 from src.utils.logger import logger
 
@@ -77,19 +76,49 @@ class FAISSStore:
             logger.info(
                 f"Created FAISS index (dimension={self.dimension})"
             )
+            # -----------------------------
+            # Prevent duplicate vectors
+            # -----------------------------
 
-        self.index.add(embeddings)
+            existing_ids = {
+                item["metadata"]["chunk_id"]
+                for item in self.metadata
+            }
 
-        for chunk in valid_chunks:
+            new_embeddings = []
+            new_metadata = []
 
-            self.metadata.append(
-                {
-                    "text": chunk.text,
-                    "metadata": chunk.metadata.model_dump()
-                }
+            for embedding, chunk in zip(valid_embeddings, valid_chunks):
+
+                chunk_id = chunk.chunk_id
+
+                if chunk_id in existing_ids:
+                    continue
+
+                new_embeddings.append(embedding)
+
+                new_metadata.append(
+                    {
+                        "text": chunk.text,
+                        "metadata": chunk.metadata.model_dump()
+                    }
+                )
+
+            if not new_embeddings:
+
+                logger.info("No new vectors to add.")
+                return
+
+            new_embeddings = np.vstack(new_embeddings)
+
+            self.index.add(new_embeddings)
+
+            self.metadata.extend(new_metadata)
+
+            logger.info(
+                f"Added {len(new_metadata)} new vectors."
             )
 
-        logger.info(f"Added {len(valid_chunks)} vectors to FAISS.")
 
     def save(self):
 

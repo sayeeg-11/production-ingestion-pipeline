@@ -11,6 +11,7 @@ from src.utils.logger import logger
 from src.monitoring import PipelineStats
 from src.embeddings import EmbeddingFactory
 from src.vectorstores import FAISSStore
+from src.search import BM25Search
 
 
 class IngestionPipeline:
@@ -33,6 +34,7 @@ class IngestionPipeline:
 
         self.vector_store = FAISSStore()
         self.vector_store.load()
+        self.bm25 = BM25Search()
 
         self.stats = PipelineStats()
 
@@ -151,6 +153,7 @@ class IngestionPipeline:
                     # ----------------------------------------
 
                     self.vector_store.add(chunks)
+                    self.bm25.add(chunks)
 
                     logger.info(f"Chunks: {len(chunks)}")
 
@@ -174,6 +177,7 @@ class IngestionPipeline:
             # ----------------------------------------
 
             self.vector_store.save()
+            self.bm25.save()
             self.duplicate_detector.save()
 
             output_name = Path(file_path).stem
