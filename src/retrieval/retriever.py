@@ -2,6 +2,7 @@ from src.embeddings import EmbeddingFactory
 from src.vectorstores import FAISSStore
 from src.search.bm25_search import BM25Search
 from src.retrieval.hybrid import HybridSearch
+from src.reranking import Reranker
 
 
 class Retriever:
@@ -24,6 +25,7 @@ class Retriever:
         self.vector_store.load()
 
         self.keyword_search = BM25Search()
+        self.reranker = Reranker()
 
     def search(
         self,
@@ -31,25 +33,31 @@ class Retriever:
         k: int = 5,
     ):
 
-        # Generate embedding
+    # Generate query embedding
         embedding = self.embedding_model.embed([query])[0]
 
-        # Semantic search
+    # Retrieve more candidates for reranking
         vector_results = self.vector_store.search(
             embedding,
-            k=k,
-        )
+            k=20,
+    )
 
-        # Keyword search
         keyword_results = self.keyword_search.search(
             query,
-            k=k,
-        )
+            k=20,
+    )
 
-        # Merge both searches
-        results = HybridSearch.merge(
+    # Merge semantic + keyword results
+        merged_results = HybridSearch.merge(
             vector_results,
             keyword_results,
-        )
+    )
 
-        return results[:k]
+    # Rerank using Cross Encoder
+        reranked = self.reranker.rerank(
+            query,
+            merged_results,
+)           
+
+        return reranked[:k]
+    
