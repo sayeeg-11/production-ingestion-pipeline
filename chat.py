@@ -27,16 +27,15 @@ def main():
             print("Assistant : I don't know based on the available documents.\n")
             continue
 
-        # Build prompt
-        prompt = generator.generate(
+        # Generate final answer from the LLM
+        answer = generator.generate(
             query=query,
             chunks=results,
         )
 
-        print("\nPrompt sent to LLM\n")
-        print("=" * 80)
-        print(prompt)
-        print("=" * 80)
+        print("\nAssistant:\n")
+        print(answer)
+        print()
 
 
 if __name__ == "__main__":

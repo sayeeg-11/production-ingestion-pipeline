@@ -1,4 +1,8 @@
 class ContextValidator:
+    """
+    Checks whether the retrieved context is relevant enough
+    to answer the user's question.
+    """
 
     MIN_SCORE = 3.0
 
@@ -10,4 +14,4 @@ class ContextValidator:
 
         best = results[0]
 
-        return best["score"] >= cls.MIN_SCORE
+        return best["rerank_score"] >= cls.MIN_SCORE

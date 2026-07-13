@@ -86,3 +86,59 @@ LOG_DIRECTORY.mkdir(exist_ok=True)
 OUTPUT_DIRECTORY.mkdir(exist_ok=True)
 VECTOR_DB_DIRECTORY.mkdir(exist_ok=True)
 STORAGE_DIRECTORY.mkdir(exist_ok=True)
+
+# ==========================================================
+# Embeddings
+# ==========================================================
+
+EMBEDDING_MODEL = os.getenv(
+    "EMBEDDING_MODEL",
+    "sentence-transformers/all-MiniLM-L6-v2",
+)
+
+# ==========================================================
+# Retrieval
+# ==========================================================
+
+RETRIEVAL_TOP_K = int(
+    os.getenv("RETRIEVAL_TOP_K", 5)
+)
+
+# ==========================================================
+# Reranker
+# ==========================================================
+
+RERANKER_MODEL = os.getenv(
+    "RERANKER_MODEL",
+    "cross-encoder/ms-marco-MiniLM-L-6-v2",
+)
+
+RERANK_TOP_K = int(
+    os.getenv("RERANK_TOP_K", 5)
+)
+
+
+RETRIEVAL_CANDIDATES = int(
+    os.getenv("RETRIEVAL_CANDIDATES", 20)
+)
+
+# ==========================================================
+# Context Validation
+# ==========================================================
+
+MIN_CONTEXT_SCORE = float(
+    os.getenv("MIN_CONTEXT_SCORE", 3.0)
+)
+
+# ==========================================================
+# LLM Configuration
+# ==========================================================
+
+LLM_PROVIDER = os.getenv("LLM_PROVIDER", "groq")
+
+GROQ_API_KEY = os.getenv("GROQ_API_KEY")
+
+GROQ_MODEL = os.getenv(
+    "GROQ_MODEL",
+    "llama-3.3-70b-versatile",
+)

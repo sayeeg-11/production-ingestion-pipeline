@@ -1,8 +1,15 @@
+from src.generation.providers.groq import GroqGenerator
+
+
 class Generator:
     """
-    Responsible for generating the final prompt
-    (LLM integration comes next).
+    Builds the prompt and generates
+    the final answer using the LLM.
     """
+
+    def __init__(self):
+
+        self.llm = GroqGenerator()
 
     def build_prompt(
         self,
@@ -44,9 +51,15 @@ Answer:
         self,
         query: str,
         chunks: list,
-    ):
+    ) -> str:
 
-        return self.build_prompt(
-            query,
-            chunks,
+        prompt = self.build_prompt(
+            query=query,
+            chunks=chunks,
         )
+
+        response = self.llm.generate(
+            prompt=prompt,
+        )
+
+        return response
